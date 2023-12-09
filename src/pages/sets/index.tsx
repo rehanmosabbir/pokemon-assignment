@@ -1,19 +1,19 @@
 import React, { FunctionComponent } from "react";
 import { GetServerSidePropsContext } from "next";
-import Loading from "@/components/LoadingComponent";
 import { dehydrate, DehydratedState, QueryClient } from "@tanstack/react-query";
 import { QueryKeys } from "@/enums";
 import { _getAllSets } from "@/services/pokemon.service";
-import PokemonComponent from "@/components/PokemonComponent";
 import { useUpdateSetName } from "@/hooks/useUpdateSetName";
 import { useSets } from "@/hooks/useSets";
+import PokemonComponent from "@/components/PokemonComponent";
+import LoadingComponent from "@/components/LoadingComponent";
+import PokemonSetComponent from "@/components/PokemonSetComponent";
 import HeaderComponent from "@/components/HeaderComponent";
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext
 ): Promise<{ props: { dehydratedState: DehydratedState } }> => {
   const queryClient = new QueryClient();
-
   await queryClient.prefetchQuery({
     queryKey: [QueryKeys.CardSets],
     queryFn: async () => {
@@ -24,11 +24,9 @@ export const getServerSideProps = async (
   return { props: { dehydratedState: dehydrate(queryClient) } };
 };
 
-const Home: FunctionComponent = () => {
-  const object = useSets();
-  const setObject = [...object.data!];
-  setObject.reverse();
-  if (!object) {
+const TaskOne: FunctionComponent = () => {
+  const setObject = useSets();
+  if (!setObject) {
     return (
       <div
         className={`flex min-h-screen flex-col items-center justify-between bg-slate-100 p-24`}
@@ -39,22 +37,20 @@ const Home: FunctionComponent = () => {
   }
 
   return (
-    <>
+    <div className="flex flex-wrap justify-around">
       <HeaderComponent />
-      <div className="flex flex-wrap p-20 justify-between">
-        {!object.isLoading ? (
-          setObject?.map((pokemon) => (
-            <PokemonComponent
-              pokemon={pokemon}
-              key={pokemon.id}
-            ></PokemonComponent>
-          ))
-        ) : (
-          <Loading type="spin" color="#ff0000" />
-        )}
-      </div>
-    </>
+      {!setObject.isLoading ? (
+        setObject.data?.map((pokemon) => (
+          <PokemonSetComponent
+            pokemon={pokemon}
+            key={pokemon.id}
+          ></PokemonSetComponent>
+        ))
+      ) : (
+        <LoadingComponent type="spin" color="#ff0000" />
+      )}
+    </div>
   );
 };
 
-export default Home;
+export default TaskOne;
