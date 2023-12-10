@@ -24,7 +24,7 @@ const CustomModalComponent: React.FC<ModalProps> = ({
       isOpen={isOpen}
       onRequestClose={onClose}
       overlayClassName="fixed inset-0"
-      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 p-4 rounded-md"
+      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 p-10 rounded-md"
       contentLabel="Example Modal"
     >
       <button

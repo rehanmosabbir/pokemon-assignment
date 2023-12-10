@@ -14,6 +14,9 @@ const HeaderComponent = () => {
   const { count } = useCountStore();
   return (
     <div className="bg-black pr-10 py-5 flex justify-end fixed w-full">
+      <Link href="/" className="text-white mr-10">
+        Home
+      </Link>
       <Link href="/sets" className="text-white mr-10">
         All Sets
       </Link>

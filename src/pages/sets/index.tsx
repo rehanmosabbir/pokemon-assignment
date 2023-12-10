@@ -5,7 +5,6 @@ import { QueryKeys } from "@/enums";
 import { _getAllSets } from "@/services/pokemon.service";
 import { useUpdateSetName } from "@/hooks/useUpdateSetName";
 import { useSets } from "@/hooks/useSets";
-import PokemonComponent from "@/components/PokemonComponent";
 import LoadingComponent from "@/components/LoadingComponent";
 import PokemonSetComponent from "@/components/PokemonSetComponent";
 import HeaderComponent from "@/components/HeaderComponent";
@@ -24,8 +23,9 @@ export const getServerSideProps = async (
   return { props: { dehydratedState: dehydrate(queryClient) } };
 };
 
-const TaskOne: FunctionComponent = () => {
+const Sets: FunctionComponent = () => {
   const setObject = useSets();
+  const { mutate: updateName } = useUpdateSetName();
   if (!setObject) {
     return (
       <div
@@ -44,6 +44,7 @@ const TaskOne: FunctionComponent = () => {
           <PokemonSetComponent
             pokemon={pokemon}
             key={pokemon.id}
+            updateName={updateName}
           ></PokemonSetComponent>
         ))
       ) : (
@@ -53,4 +54,4 @@ const TaskOne: FunctionComponent = () => {
   );
 };
 
-export default TaskOne;
+export default Sets;

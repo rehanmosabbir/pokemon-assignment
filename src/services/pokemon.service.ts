@@ -10,5 +10,7 @@ export const _getsingleSetData = async (id: string) => {
 };
 
 export const _editSetName = async (setid: string, setName: string) => {
+  const data = await PokemonTCG.findSetByID(setid);
+  console.log("Name Updated :", setName);
   return { message: "name Changed" };
 };

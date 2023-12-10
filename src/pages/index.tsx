@@ -5,7 +5,6 @@ import { dehydrate, DehydratedState, QueryClient } from "@tanstack/react-query";
 import { QueryKeys } from "@/enums";
 import { _getAllSets } from "@/services/pokemon.service";
 import PokemonComponent from "@/components/PokemonComponent";
-import { useUpdateSetName } from "@/hooks/useUpdateSetName";
 import { useSets } from "@/hooks/useSets";
 import HeaderComponent from "@/components/HeaderComponent";
 
