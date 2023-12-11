@@ -13,12 +13,9 @@ const HeaderComponent = () => {
   const { isLogin, setIsLogin } = useLogStore();
   const { count } = useCountStore();
   return (
-    <div className="bg-purple-800 pr-10 py-5 flex justify-end fixed w-full">
+    <div className="bg-[#9E60F7] pr-10 py-5 flex justify-end fixed w-full">
       <Link href="/" className="text-white mr-10">
         Home
-      </Link>
-      <Link href="/sets" className="text-white mr-10">
-        All Sets
       </Link>
       <Link href="/cart" className="mr-10 flex">
         <FontAwesomeIcon icon={faCartPlus} className="text-white fa-xl mr-2" />

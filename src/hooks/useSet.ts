@@ -16,6 +16,6 @@ export const useSet = (isEnabled: boolean = false) => {
     refetchOnWindowFocus: true,
     refetchOnMount: false,
     enabled: true,
-    retry: 1,
+    retry: 5,
   });
 };

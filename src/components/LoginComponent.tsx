@@ -18,14 +18,12 @@ const LoginComponent: FunctionComponent = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    console.log("Username:", username);
-    console.log("Password:", password);
-
-    setIsLogin();
-    setUsername("");
-    setPassword("");
-    router.push("/");
+    if (username === "codecamp" && password === "123") {
+      setIsLogin();
+      setUsername("");
+      setPassword("");
+      router.push("/");
+    }
   };
   return (
     <form
@@ -71,6 +69,7 @@ const LoginComponent: FunctionComponent = () => {
             id="password"
             required
             type="password"
+            placeholder="Password"
             value={password}
             onChange={handlePasswordChange}
           />

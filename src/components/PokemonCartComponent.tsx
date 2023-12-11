@@ -12,13 +12,15 @@ const PokemonCartComponent: FunctionComponent<{
   const { images, ...others } = pokemon;
 
   return (
-    <div className="flex justify-center bg-slate-200 border border-gray-500 p-10 mb-10">
-      <Image src={images.logo} alt="" width={100} height={100} />
-      <div className="ml-10 flex justify-center">
-        <p>{pokemon.name}</p>
+    <div className=" py-6 flex justify-around  m-4 border w-2/4 mx-auto bg-white dark:bg-gray-800 shadow-md rounded-md h-[100px]">
+      <div className="flex">
+        <Image src={images.logo} alt="" width={200} height={200} />
+        <p className="py-4 ml-4 text-purple-800">{pokemon.name}</p>
+      </div>
+      <div className="mr-10 mt-4">
         <FontAwesomeIcon
           icon={faTrashCan}
-          className="text-red-800 fa-xl ml-2"
+          className="fa-xl text-red-800"
           onClick={() => {
             dec();
             removeId(others.id);

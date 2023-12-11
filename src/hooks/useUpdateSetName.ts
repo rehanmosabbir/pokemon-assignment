@@ -20,7 +20,6 @@ export const useUpdateSetName = (initialSets?: PokemonTCG.Set[]) => {
           if (foundSet) {
             foundSet.name = variable.setName;
           }
-          // console.log(initialSets, "In useUpdateSetName");
           return initialSets;
         }
       );

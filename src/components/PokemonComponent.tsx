@@ -5,12 +5,17 @@ import PokemonInfoComponent from "./PokemonInfoComponent";
 
 const PokemonComponent: FunctionComponent<{
   pokemon: ISet;
-}> = ({ pokemon }) => {
-  const { images, ...others } = pokemon;
+  updateName: any;
+}> = ({ pokemon, updateName }) => {
+  const { images, id, name } = pokemon;
+  console.log(id);
   return (
-    <div className="bg-slate-200 border border-gray-500 p-10 mb-10">
-      <PokemonImageComponent image={images} />
-      <PokemonInfoComponent  info={others} />
+    <div
+      className="m-4 border text-card-foreground w-full max-w-sm mx-auto bg-white dark:bg-gray-800 shadow-md rounded-md overflow-hidden"
+      data-v0-t="card"
+    >
+      <PokemonImageComponent image={images} id={id} name={name} />
+      <PokemonInfoComponent updateName={updateName} info={pokemon} />
     </div>
   );
 };

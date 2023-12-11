@@ -8,6 +8,7 @@ import PokemonComponent from "@/components/PokemonComponent";
 import { useSets } from "@/hooks/useSets";
 import HeaderComponent from "@/components/HeaderComponent";
 import FooterComponent from "@/components/FooterComponent";
+import { useUpdateSetName } from "@/hooks/useUpdateSetName";
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext
@@ -26,6 +27,7 @@ export const getServerSideProps = async (
 
 const Home: FunctionComponent = () => {
   const object = useSets();
+  const { mutate: updateName } = useUpdateSetName();
   const setObject = [...object.data!];
   setObject.reverse();
   if (!object) {
@@ -47,6 +49,7 @@ const Home: FunctionComponent = () => {
             <PokemonComponent
               pokemon={pokemon}
               key={pokemon.id}
+              updateName={updateName}
             ></PokemonComponent>
           ))
         ) : (
