@@ -1,25 +1,15 @@
 import HeaderComponent from "@/components/HeaderComponent";
 import LoadingComponent from "@/components/LoadingComponent";
-import { CardQueryKey, QueryKey } from "@/enums";
+import { CardQueryKey } from "@/enums";
 import { useCards } from "@/hooks/useCards";
-import { useSet } from "@/hooks/useSet";
-import { ISet } from "@/interfaces/Pokemon";
-import {
-  _getAllCards,
-  _getAllSets,
-  _getsingleSetData,
-} from "@/services/pokemon.service";
+import { _getAllCards } from "@/services/pokemon.service";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import React from "react";
 
 export const getStaticPaths: GetStaticPaths = async (qry) => {
-  // const sets: ISet[] = await _getAllSets();
-
   const cards = await _getAllCards("neo3"); // card array of objects
-  // console.log(cards);
   const tempPaths = cards.map((x) => x.set.id);
 
   let tempParams: { params: { id: string } }[] = [];

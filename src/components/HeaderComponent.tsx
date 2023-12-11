@@ -13,7 +13,7 @@ const HeaderComponent = () => {
   const { isLogin, setIsLogin } = useLogStore();
   const { count } = useCountStore();
   return (
-    <div className="bg-[#9E60F7] pr-10 py-5 flex justify-end fixed w-full">
+    <header className="bg-[#9E60F7] pr-10 py-5 flex justify-end fixed w-full">
       <Link href="/" className="text-white mr-10">
         Home
       </Link>
@@ -36,7 +36,7 @@ const HeaderComponent = () => {
           />
         </Link>
       )}
-    </div>
+    </header>
   );
 };
 
