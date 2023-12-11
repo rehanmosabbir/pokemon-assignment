@@ -7,6 +7,7 @@ import { _getAllSets } from "@/services/pokemon.service";
 import PokemonComponent from "@/components/PokemonComponent";
 import { useSets } from "@/hooks/useSets";
 import HeaderComponent from "@/components/HeaderComponent";
+import FooterComponent from "@/components/FooterComponent";
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext
@@ -52,6 +53,7 @@ const Home: FunctionComponent = () => {
           <Loading type="spin" color="#ff0000" />
         )}
       </div>
+      <FooterComponent />
     </>
   );
 };
