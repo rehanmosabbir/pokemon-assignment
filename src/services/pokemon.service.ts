@@ -4,6 +4,13 @@ export const _getAllSets = async () => {
   const allSets: PokemonTCG.Set[] = await PokemonTCG.getAllSets();
   return allSets;
 };
+export const _getAllCards = async (id: string) => {
+  const allCards: PokemonTCG.Card[] = await PokemonTCG.findCardsByQueries({
+    q: `set.id:${id}`,
+    orderBy: "-set.releaseDate",
+  });
+  return allCards;
+};
 
 export const _getsingleSetData = async (id: string) => {
   return await PokemonTCG.findSetByID(id);

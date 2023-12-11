@@ -4,3 +4,6 @@ export enum QueryKeys {
 export enum QueryKey {
   CardSet = "set",
 }
+export enum CardQueryKey {
+  Cards = "cards",
+}
