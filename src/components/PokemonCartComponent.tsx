@@ -1,8 +1,8 @@
 import { ISet } from "@/interfaces/Pokemon";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { FunctionComponent } from "react";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const PokemonCartComponent: FunctionComponent<{
   pokemon: ISet;

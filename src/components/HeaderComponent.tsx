@@ -1,5 +1,4 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartPlus,
   faPowerOff,
@@ -8,6 +7,7 @@ import {
 import Link from "next/link";
 import { useLogStore } from "@/hooks/useLogStore";
 import { useCountStore } from "@/hooks/useCountStore";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const HeaderComponent = () => {
   const { isLogin, setIsLogin } = useLogStore();
@@ -25,7 +25,7 @@ const HeaderComponent = () => {
         <>
           <p className="text-white mr-2">codecamp</p>
           <Link href="/login" onClick={() => setIsLogin()}>
-            <FontAwesomeIcon icon={faPowerOff} className="text-white fa-xl" />
+            <FontAwesomeIcon icon={faPowerOff} className="text-red-800 fa-xl" />
           </Link>
         </>
       ) : (

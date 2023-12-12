@@ -4,11 +4,12 @@ import PokemonCartComponent from "@/components/PokemonCartComponent";
 import { QueryKeys } from "@/enums";
 import { useSets } from "@/hooks/useSets";
 import { _getAllSets } from "@/services/pokemon.service";
-import { dehydrate, DehydratedState, QueryClient } from "@tanstack/react-query";
 import { useCountStore } from "@/hooks/useCountStore";
 import { GetServerSidePropsContext } from "next";
 import React from "react";
 import { ISet } from "./../../interfaces/Pokemon";
+import FooterComponent from "@/components/FooterComponent";
+import { dehydrate, DehydratedState, QueryClient } from "@tanstack/react-query";
 
 export const getServerSideProps = async (
   context: GetServerSidePropsContext
@@ -32,7 +33,7 @@ const Cart = () => {
   const setObject = useSets();
   let fileteredObj: ISet[] | undefined = [];
   pokemonId.forEach((id) => {
-    const obj = setObject.data?.filter((p) => p.id === id);
+    const obj = setObject.data?.filter((p: { id: string }) => p.id === id);
     fileteredObj?.push(...obj!);
   });
 
@@ -63,6 +64,7 @@ const Cart = () => {
           <LoadingComponent type="spin" color="#ff0000" />
         )}
       </div>
+      <FooterComponent />
     </>
   );
 };

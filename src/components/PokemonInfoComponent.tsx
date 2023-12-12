@@ -240,6 +240,7 @@ const PokemonInfoComponent: FunctionComponent<{
                     id="ename"
                     value={ename}
                     onChange={handleenameChange}
+                    placeholder="Enter a name here..."
                     required
                   />
                 </div>
